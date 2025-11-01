@@ -1,16 +1,16 @@
-// 🎯 Select all letter boxes and set constants
+// Select all letter boxes and set constants
 const letters = document.querySelectorAll('.row div');
 console.log(letters)
 const ANSWER_LENGTH = 5;
 
-// 🚀 Start the game logic
+// Start the game logic
 async function init() {
   let currentRow = 0;
   let currentGuess = '';
   //add a variable
   let won = false
 
-  // 🧩 1. Get the word of the day from API
+  // 1. Get the word of the day from API
   const res = await fetch("https://words.dev-apis.com/word-of-the-day");
   const resObj = await res.json();
   const word = resObj.word.toUpperCase();
@@ -18,7 +18,7 @@ async function init() {
 
   console.log("Word of the day:", word);
 
-  // 🅰️ 2. Add letter when user types
+  //2. Add letter when user types
   function addLetter(letter) {
     if (currentGuess.length < ANSWER_LENGTH) {
       currentGuess += letter;
@@ -26,7 +26,7 @@ async function init() {
     }
   }
 
-  // ⬅️ 3. Handle backspace
+  // 3. Handle backspace
   function backspace() {
     if (currentGuess.length > 0) {
       letters[ANSWER_LENGTH * currentRow + currentGuess.length - 1].innerText = '';
@@ -34,14 +34,14 @@ async function init() {
     }
   }
 
-  // ✅ 4. Handle when user presses Enter
+  // 4. Handle when user presses Enter
   async function commit() {
     if (currentGuess.length !== ANSWER_LENGTH) return;
 
     const guessParts = currentGuess.split("");
     const map = makeMap(wordParts); // track letter frequency
 
-    // 🏆 If player guessed right
+    // If player guessed right
     if (currentGuess === word) {
       document.getElementById("message").textContent = "🎉 You win!";
       won = true
@@ -75,12 +75,12 @@ async function init() {
     currentGuess = '';
   }
 
-  // 🔤 7. Helper: check if key is a letter
+  //7. Helper: check if key is a letter
   function isLetter(letter) {
     return /^[a-zA-Z]$/.test(letter);
   }
 
-  // 🧮 8. Helper: make a letter frequency map
+  //8. Helper: make a letter frequency map
   function makeMap(array) {
     const obj = {};
     for (let i = 0; i < array.length; i++) {
@@ -94,7 +94,7 @@ async function init() {
     return obj;
   }
 
-  // ⌨️ 9. Listen to keyboard events
+  //9. Listen to keyboard events
   document.addEventListener("keydown", function (event) {
     if (won){ return }
     //console.log (event);
@@ -110,5 +110,5 @@ async function init() {
   });
 }
 
-// 🔁 Start game
+//Start game
 init();
