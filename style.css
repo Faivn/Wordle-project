@@ -1,0 +1,99 @@
+
+/*body {
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #f2f2f2;
+}
+
+.game {
+  text-align: center;
+}
+
+#message{
+
+    margin-top: 50px;
+    color: black;
+    font-style: italic;
+    box-sizing: content-box;
+    border-bottom: 2px ;
+    
+ 
+}
+.grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+input {
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  font-size: 24px;
+  text-transform: uppercase;
+}
+
+button{
+    width: 100px;
+    height: 48px;
+    background-color: black;
+    color: #f2f2f2;
+}
+.winner {
+    animation: rainbow 4s infinite linear;
+}*/
+
+body {
+  font-family: sans-serif;
+  background: #111;
+  color: white;
+  text-align: center;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  margin: 8px 0;
+}
+
+.row div {
+  width: 50px;
+  height: 50px;
+  margin: 4px;
+  font-size: 2rem;
+  text-align: center;
+  border: 2px solid #333;
+  background-color: #222;
+  color: white;
+  text-transform: uppercase;
+  border-radius: 4px;
+}
+
+/* ✅ Wordle-style feedback colors */
+.correct {
+  background-color: #538d4e !important; /* green */
+  border-color: #538d4e !important;
+  color: white;
+}
+
+.close {
+  background-color: #b59f3b !important; /* yellow */
+  border-color: #b59f3b !important;
+  color: white;
+}
+
+.wrong {
+  background-color: #3a3a3c !important; /* gray */
+  border-color: #3a3a3c !important;
+  color: white;
+}
